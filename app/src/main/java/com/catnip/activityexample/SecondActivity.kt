@@ -17,6 +17,7 @@ class SecondActivity : AppCompatActivity() {
             val intent = Intent(this@SecondActivity, ThirdActivity::class.java)
 
             //mengirim data satu satu
+            intent.putExtra(Constants.INTENT_ARG_NAME,"Tony Stark")
 
 /*
             intent.putExtra(Constants.INTENT_ARG_NAME,"Tony Stark")

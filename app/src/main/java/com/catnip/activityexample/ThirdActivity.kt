@@ -11,6 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 class ThirdActivity : AppCompatActivity() {
     private val TAG = ThirdActivity::class.simpleName
 
+    private val student : Student? by lazy {
+        intent.getParcelableExtra(INTENT_ARG_STUDENT)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
@@ -25,7 +30,7 @@ class ThirdActivity : AppCompatActivity() {
         val age = intent.getIntExtra(Constants.INTENT_ARG_AGE,-1)
         val address = intent.getStringExtra(Constants.INTENT_ARG_ADDRESS)*/
 
-        val student = intent.getParcelableExtra<Student>(INTENT_ARG_STUDENT)
+
         Toast.makeText(
             this@ThirdActivity,
             "${student?.name} ${student?.address} ${student?.age}",
