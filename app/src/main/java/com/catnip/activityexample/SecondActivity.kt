@@ -24,13 +24,17 @@ class SecondActivity : AppCompatActivity() {
             intent.putExtra(Constants.INTENT_ARG_ADDRESS,"Condet")*/
 
             //mengirim data dengan cara yang lebih slay
+            val student = Student("Tony Stark", "Condet", 52)
 
+/*
             val student = Student("Tony Stark", "Condet", 52)
             intent.putExtra(
                 Constants.INTENT_ARG_STUDENT_OBJ,
                 student
             )
-            startActivity(intent)
+            startActivity(intent)*/
+
+            ThirdActivity.startActivity(this@SecondActivity,student)
         }
     }
 

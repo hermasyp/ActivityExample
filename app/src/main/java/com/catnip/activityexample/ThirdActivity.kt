@@ -1,5 +1,6 @@
 package com.catnip.activityexample
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -24,8 +25,12 @@ class ThirdActivity : AppCompatActivity() {
         val age = intent.getIntExtra(Constants.INTENT_ARG_AGE,-1)
         val address = intent.getStringExtra(Constants.INTENT_ARG_ADDRESS)*/
 
-        val student = intent.getParcelableExtra<Student>(Constants.INTENT_ARG_STUDENT_OBJ)
-        Toast.makeText(this@ThirdActivity, "${student?.name} ${student?.address} ${student?.age}", Toast.LENGTH_SHORT).show()
+        val student = intent.getParcelableExtra<Student>(INTENT_ARG_STUDENT)
+        Toast.makeText(
+            this@ThirdActivity,
+            "${student?.name} ${student?.address} ${student?.age}",
+            Toast.LENGTH_SHORT
+        ).show()
 
     }
 
@@ -52,5 +57,15 @@ class ThirdActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d(TAG, "onDestroy: ")
+    }
+
+    companion object {
+        private const val INTENT_ARG_STUDENT = "INTENT_ARG_STUDENT"
+
+        fun startActivity(context: Context, student: Student) {
+            context.startActivity(Intent(context,ThirdActivity::class.java).apply {
+                putExtra(INTENT_ARG_STUDENT,student)
+            })
+        }
     }
 }
