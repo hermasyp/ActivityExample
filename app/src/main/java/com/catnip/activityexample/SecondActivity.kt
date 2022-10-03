@@ -15,6 +15,21 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
         findViewById<Button>(R.id.btn_navigate_to_third).setOnClickListener {
             val intent = Intent(this@SecondActivity, ThirdActivity::class.java)
+
+            //mengirim data satu satu
+
+/*
+            intent.putExtra(Constants.INTENT_ARG_NAME,"Tony Stark")
+            intent.putExtra(Constants.INTENT_ARG_AGE,52)
+            intent.putExtra(Constants.INTENT_ARG_ADDRESS,"Condet")*/
+
+            //mengirim data dengan cara yang lebih slay
+
+            val student = Student("Tony Stark", "Condet", 52)
+            intent.putExtra(
+                Constants.INTENT_ARG_STUDENT_OBJ,
+                student
+            )
             startActivity(intent)
         }
     }

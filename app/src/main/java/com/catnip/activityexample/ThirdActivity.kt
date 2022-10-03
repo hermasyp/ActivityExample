@@ -1,10 +1,11 @@
 package com.catnip.activityexample
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class ThirdActivity : AppCompatActivity() {
     private val TAG = ThirdActivity::class.simpleName
@@ -19,7 +20,12 @@ class ThirdActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+/*        val name = intent.getStringExtra(Constants.INTENT_ARG_NAME)
+        val age = intent.getIntExtra(Constants.INTENT_ARG_AGE,-1)
+        val address = intent.getStringExtra(Constants.INTENT_ARG_ADDRESS)*/
 
+        val student = intent.getParcelableExtra<Student>(Constants.INTENT_ARG_STUDENT_OBJ)
+        Toast.makeText(this@ThirdActivity, "${student?.name} ${student?.address} ${student?.age}", Toast.LENGTH_SHORT).show()
 
     }
 
